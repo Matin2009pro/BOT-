@@ -32,7 +32,7 @@ def get_json(url:str, data):
     try:
         response = get(url=url, data=data)
         if response.status_code == 201:
-            return response.json()
+            return response
     except ConnectionError:
         return False
     return False
