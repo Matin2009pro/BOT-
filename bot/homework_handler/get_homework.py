@@ -23,7 +23,9 @@ async def send_homework(update:Update, context:ContextTypes.DEFAULT_TYPE):
 
     #answer to homework
     if reponse:
+        json = reponse.json()
+        text = json.get("text", cant_find_text)
         await context.bot.send_message(chat_id=chat_id, text=text_receive_homework)
-        await context.bot.send_message(chat_id=chat_id, text=reponse.text)
+        await context.bot.send_message(chat_id=chat_id, text=text)
     else:
         await context.bot.send_message(chat_id=chat_id, text=text_cant_receive_homework)
